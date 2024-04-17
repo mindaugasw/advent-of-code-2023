@@ -22,3 +22,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    _instanceof:
+        App\Service\Task\TaskSolutionInterface:
+            tags: ['app.task_solution']
+
+    App\Command\TaskCommand:
+        arguments:
+            $taskSolutions: !tagged_iterator app.task_solution
