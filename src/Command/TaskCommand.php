@@ -109,7 +109,7 @@ class TaskCommand extends Command
 
             $result = $solutionService->$method();
 
-            $this->io->text($result);
+            $this->io->text((string) $result);
 
             return;
         }

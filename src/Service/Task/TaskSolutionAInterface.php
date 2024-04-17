@@ -6,5 +6,5 @@ namespace App\Service\Task;
 
 interface TaskSolutionAInterface extends TaskSolutionInterface
 {
-    public function solveA(): string;
+    public function solveA(): string|int;
 }
