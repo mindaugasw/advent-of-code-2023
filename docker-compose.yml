@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  app:
+    container_name: aoc23
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: aoc23-img
+    environment:
+      - PHP_IDE_CONFIG=serverName=phpstorm-debug-server
+    volumes:
+      - .:/app/main
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/php-custom.ini
