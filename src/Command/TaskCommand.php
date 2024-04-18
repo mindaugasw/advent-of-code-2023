@@ -24,7 +24,7 @@ class TaskCommand extends Command
 
     private readonly SymfonyStyle $io;
     private readonly int $taskNumber;
-    private readonly TaskPart $taskPart;
+    private readonly array $partsToSolve;
 
     public function __construct(
         /** @var iterable<TaskSolutionInterface> */
@@ -72,10 +72,10 @@ class TaskCommand extends Command
 
         $part = strtoupper($input->getArgument(self::ARGUMENT_PART) ?? '');
 
-        $this->taskPart = match ($part) {
-            'A' => TaskPart::A,
-            'B' => TaskPart::B,
-            '' => TaskPart::Both,
+        $this->partsToSolve = match ($part) {
+            'A' => [TaskPart::A],
+            'B' => [TaskPart::B],
+            '' => [TaskPart::A, TaskPart::B],
             default => throw new InvalidArgumentException("Invalid task part argument \"$part\""),
         };
     }
@@ -98,14 +98,14 @@ class TaskCommand extends Command
         string $method,
         TaskPart $part,
     ): void {
-        if ($this->taskPart !== $part && $this->taskPart !== TaskPart::Both) {
-            $this->io->text("<comment>Skipping {$this->taskNumber}-{$part->name}</comment>");
+        if (!in_array($part, $this->partsToSolve)) {
+            $this->io->text("<comment>Skipping {$this->taskNumber} {$part->name}</comment>");
 
             return;
         }
 
         if ($solutionService instanceof $solutionInterface) {
-            $this->io->text("<info>Solving {$this->taskNumber}-{$part->name} ...</info>");
+            $this->io->text("<info>Solving {$this->taskNumber} {$part->name} ...</info>");
 
             $result = $solutionService->$method();
 

@@ -8,5 +8,4 @@ enum TaskPart
 {
     case A;
     case B;
-    case Both;
 }

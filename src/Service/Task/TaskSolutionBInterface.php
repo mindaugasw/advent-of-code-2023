@@ -6,5 +6,5 @@ namespace App\Service\Task;
 
 interface TaskSolutionBInterface extends TaskSolutionInterface
 {
-    public function solveB(): string|int;
+    public function solveB(string $inputFile): string|int;
 }
