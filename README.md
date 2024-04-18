@@ -11,4 +11,5 @@ https://adventofcode.com/
 - Solve task: `bin/console <day> [<part>]`, where `<part>` is `A|B`
 - Enable debugger with `xdt bin/console ...` (`xdt` for `XDEBUG_TRIGGER=`)
 - Run tests: `[xdt] phpunit [--filter 01-B]`
+  - `FAST= phpunit` to skip long-running tests
 - Run static analysis: `phpstan`

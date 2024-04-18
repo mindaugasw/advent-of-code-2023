@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class TaskSolutionTest extends KernelTestCase
 {
+    private const string ENV_KEY_SKIP_HEAVY_TESTS = 'FAST';
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -17,8 +19,18 @@ class TaskSolutionTest extends KernelTestCase
     }
 
     #[DataProviderExternal(TaskSolutionTestDataProvider::class, 'solve')]
-    public function testSolve(string $dayClass, TaskPart $part, string $inputFile, string|int $answer): void
+    public function testSolve(
+        string $dayClass,
+        TaskPart $part,
+        string $inputFile,
+        string|int $answer,
+        bool $heavyTest = false,
+    ): void
     {
+        if ($heavyTest && getenv(self::ENV_KEY_SKIP_HEAVY_TESTS) !== false) {
+            self::markTestSkipped();
+        }
+
         $service = self::getContainer()->get($dayClass);
 
         $result = match ($part) {

@@ -99,6 +99,19 @@ class TaskSolutionTestDataProvider
                 'inputFile' => 'input.txt',
                 'answer' => 21568,
             ],
+            '04-B example' => [
+                'dayClass' => Day04::class,
+                'part' => TaskPart::B,
+                'inputFile' => 'example.txt',
+                'answer' => 30,
+            ],
+            '04-B' => [
+                'dayClass' => Day04::class,
+                'part' => TaskPart::B,
+                'inputFile' => 'input.txt',
+                'answer' => 11827296,
+                'heavyTest' => true,
+            ],
         ];
     }
 }
