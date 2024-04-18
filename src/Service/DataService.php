@@ -14,12 +14,12 @@ readonly class DataService
     ) {
     }
 
-    public function iterateInputLines(string $inputFile): \Generator
+    public function iterateLines(string $inputFile): \Generator
     {
         $file = new \SplFileObject("{$this->dataDirectory}/{$inputFile}");
 
         while (!$file->eof()) {
-            $line = $file->fgets();
+            $line = trim($file->fgets());
 
             if (empty($line)) {
                 continue;
@@ -27,5 +27,13 @@ readonly class DataService
 
             yield $line;
         }
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getAllLines(string $inputFile): array
+    {
+        return iterator_to_array($this->iterateLines($inputFile));
     }
 }

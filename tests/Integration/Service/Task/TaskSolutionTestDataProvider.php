@@ -7,6 +7,7 @@ namespace App\Tests\Integration\Service\Task;
 use App\Constant\Enum\TaskPart;
 use App\Service\Task\Day01;
 use App\Service\Task\Day02;
+use App\Service\Task\Day03;
 
 class TaskSolutionTestDataProvider
 {
@@ -60,6 +61,18 @@ class TaskSolutionTestDataProvider
                 'part' => TaskPart::B,
                 'inputFile' => 'input.txt',
                 'answer' => 74804,
+            ],
+            '03-A example' => [
+                'dayClass' => Day03::class,
+                'part' => TaskPart::A,
+                'inputFile' => 'example.txt',
+                'answer' => 4361,
+            ],
+            '03-A' => [
+                'dayClass' => Day03::class,
+                'part' => TaskPart::A,
+                'inputFile' => 'input.txt',
+                'answer' => 530849,
             ],
         ];
     }

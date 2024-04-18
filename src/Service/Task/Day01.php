@@ -42,7 +42,7 @@ readonly class Day01 implements TaskSolutionAInterface, TaskSolutionBInterface
     {
         $sum = 0;
 
-        foreach ($this->dataService->iterateInputLines("01/{$inputFile}") as $line) {
+        foreach ($this->dataService->iterateLines("01/{$inputFile}") as $line) {
             preg_match('/^([a-z]*)(\d)/i', $line, $firstMatches);
             $firstNumber = $firstMatches[2];
 
@@ -61,7 +61,7 @@ readonly class Day01 implements TaskSolutionAInterface, TaskSolutionBInterface
         $sum = 0;
         $pattern = '/\d|' . implode('|', array_keys(self::NUMBER_MAP)) . '/i';
 
-        foreach ($this->dataService->iterateInputLines("01/{$inputFile}") as $line) {
+        foreach ($this->dataService->iterateLines("01/{$inputFile}") as $line) {
             // Fix for overlapping numbers (e.g. oneight). By default, regex would match only the first one.
             // So we replace it with o1eight, to allow matching both 1 and 8
             $lineFixed = str_replace(array_keys(self::REPLACE_MAP), array_values(self::REPLACE_MAP), $line);

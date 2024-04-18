@@ -24,7 +24,7 @@ readonly class Day02 implements TaskSolutionAInterface, TaskSolutionBInterface
         ];
         $sum = 0;
 
-        foreach ($this->dataService->iterateInputLines("02/{$inputFile}") as $line) {
+        foreach ($this->dataService->iterateLines("02/{$inputFile}") as $line) {
             ['gameId' => $gameId, 'sets' => $sets] = $this->parseGameLine($line);
             $validGame = true;
 
@@ -50,7 +50,7 @@ readonly class Day02 implements TaskSolutionAInterface, TaskSolutionBInterface
     {
         $sum = 0;
 
-        foreach ($this->dataService->iterateInputLines("02/{$inputFile}") as $line) {
+        foreach ($this->dataService->iterateLines("02/{$inputFile}") as $line) {
             $minimumCubes = [
                 'red' => 0,
                 'green' => 0,
