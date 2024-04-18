@@ -40,7 +40,7 @@ class TaskSolutionTestDataProvider
             '02-A example' => [
                 'dayClass' => Day02::class,
                 'part' => TaskPart::A,
-                'inputFile' => 'exampleA.txt',
+                'inputFile' => 'example.txt',
                 'answer' => 8,
             ],
             '02-A' => [
@@ -48,6 +48,18 @@ class TaskSolutionTestDataProvider
                 'part' => TaskPart::A,
                 'inputFile' => 'input.txt',
                 'answer' => 2317,
+            ],
+            '02-B example' => [
+                'dayClass' => Day02::class,
+                'part' => TaskPart::B,
+                'inputFile' => 'example.txt',
+                'answer' => 2286,
+            ],
+            '02-B' => [
+                'dayClass' => Day02::class,
+                'part' => TaskPart::B,
+                'inputFile' => 'input.txt',
+                'answer' => 74804,
             ],
         ];
     }
