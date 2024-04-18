@@ -22,9 +22,10 @@ class TaskCommand extends Command
     private const string ARGUMENT_DAY = 'day';
     private const string ARGUMENT_PART = 'part';
 
-    private readonly SymfonyStyle $io;
-    private readonly int $taskNumber;
-    private readonly array $partsToSolve;
+    private SymfonyStyle $io;
+    private int $taskNumber;
+    /** @var TaskPart[] */
+    private array $partsToSolve;
 
     public function __construct(
         /** @var iterable<TaskSolutionInterface> */
@@ -80,7 +81,7 @@ class TaskCommand extends Command
         };
     }
 
-    private function findTaskSolutionService(int $taskNumber): TaskSolutionAInterface|TaskSolutionBInterface {
+    private function findTaskSolutionService(int $taskNumber): TaskSolutionInterface {
         $targetClassName = sprintf('Day%02d', $taskNumber);
 
         foreach ($this->taskSolutions as $solutionService) {

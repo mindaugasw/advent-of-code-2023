@@ -79,7 +79,7 @@ readonly class Day01 implements TaskSolutionAInterface, TaskSolutionBInterface
         return $sum;
     }
 
-    private function parseNumber(string $text): ?int
+    private function parseNumber(string $text): int
     {
         if (array_key_exists($text, self::NUMBER_MAP)) {
             return self::NUMBER_MAP[$text];

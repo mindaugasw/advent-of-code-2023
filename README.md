@@ -10,4 +10,5 @@ https://adventofcode.com/
 ### Commands inside the container
 - Solve task: `bin/console <day> [<part>]`, where `<part>` is `A|B`
 - Enable debugger with `xdt bin/console ...` (`xdt` for `XDEBUG_TRIGGER=`)
-- Run tests: `[xdt] bin/phpunit [--filter 01-B]`
+- Run tests: `[xdt] phpunit [--filter 01-B]`
+- Run static analysis: `phpstan`
