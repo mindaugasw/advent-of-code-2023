@@ -8,6 +8,7 @@ use App\Constant\Enum\TaskPart;
 use App\Service\Task\Day01;
 use App\Service\Task\Day02;
 use App\Service\Task\Day03;
+use App\Service\Task\Day04;
 
 class TaskSolutionTestDataProvider
 {
@@ -85,6 +86,18 @@ class TaskSolutionTestDataProvider
                 'part' => TaskPart::B,
                 'inputFile' => 'input.txt',
                 'answer' => 84900879,
+            ],
+            '04-A example' => [
+                'dayClass' => Day04::class,
+                'part' => TaskPart::A,
+                'inputFile' => 'example.txt',
+                'answer' => 13,
+            ],
+            '04-A' => [
+                'dayClass' => Day04::class,
+                'part' => TaskPart::A,
+                'inputFile' => 'input.txt',
+                'answer' => 21568,
             ],
         ];
     }
